@@ -24,7 +24,7 @@ const Footer = () => {
               className="w-full px-4 py-3 text-white bg-transparent rounded border border-white/50 mb-4 focus:outline-none placeholder-white/70"
             />
             <div className="flex justify-center">
-              <button className="bg-white text-[#133531] px-6 py-3 font-medium rounded hover:opacity-90 cursor-pointer">
+              <button className="bg-white text-[#133531] px-6 py-3 font-medium rounded hover:opacity-90 hover:bg-black hover:text-white cursor-pointer">
                 SUBSCRIBE
               </button>
             </div>

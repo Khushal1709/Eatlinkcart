@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Collections from "./components/Collections";
 import SignIn from "./components/Signin";
+import Bestseller from "./components/Bestseller";
 function App() {
   return (
     <Router>
@@ -15,6 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Collections" element={<Collections />} />
         <Route path="/Signin" element={<SignIn />} />
+        <Route path="/Bestseller" element={<Bestseller />} />
+
 
 
         

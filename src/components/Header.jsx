@@ -13,7 +13,7 @@ const navItems = [
 const Header = () => {
   return (
     <header className="sticky top-4 z-50 bg-[#84542f]/90 shadow-md rounded-full">
-      <div className="max-w-7xl mx-auto px-4 py-3  flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 py-5  flex items-center justify-between">
         {/* Left Navigation */}
         <nav className="hidden md:flex space-x-6 font-semibold text-white text-sm tracking-wider uppercase">
           {navItems.map((item, i) => (
@@ -30,8 +30,8 @@ const Header = () => {
         {/* Center Text Logo */}
         <div className="flex-1 text-center">
           <h1
-            className="text-white text-3xl md:text-4xl tracking-wider"
-            style={{ fontFamily: "'UnifrakturCook', popins" }}
+            className="text-white text-3xl md:text-5xl tracking-wider"
+            style={{ fontFamily: "'Cinzel Decorative',cursive" }}
           >
             <Link to="/">EATLINK CART</Link>
           </h1>
@@ -41,7 +41,7 @@ const Header = () => {
         {/* Right Icons */}
         <div className="flex space-x-5 text-white text-lg items-center justify-end">
           <IoSearch className="cursor-pointer" />
-          <FaRegUser className="cursor-pointer" />
+          <Link to="/Signin"><FaRegUser className="cursor-pointer" /></Link>
           <div className="relative">
             <FaRegHeart className="cursor-pointer" />
             <span className="absolute -top-2  -right-2 text-xs bg-yellow-950 text-white px-1 rounded-full">
