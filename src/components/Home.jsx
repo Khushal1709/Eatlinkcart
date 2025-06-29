@@ -10,7 +10,7 @@ const Home = () => {
       style={{ backgroundImage: `url(${bg})` }}
     >
       <h1 className="text-4xl font-bold text-white bg-gray-800/70 p-4 rounded-lg shadow-lg">
-        The website is being developed!
+        The website is being developed!!!
       </h1>
     </div>
   );
