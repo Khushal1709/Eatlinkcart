@@ -5,10 +5,11 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import logo from "../image/logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-[#84542f] text-white">
+    <div className="w-full bg-[#2e1e12]/90 text-white">
       <footer className="max-w-7xl mx-auto px-4 md:px-8 py-10">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-b border-white/30 pb-10 text-center">
@@ -105,11 +106,11 @@ const Footer = () => {
           {/* Contact + Logo */}
           <div className="lg:border-l lg:border-white lg:pl-6">
             <h4 className="font-bold mb-4">EATLINK CART</h4>
-            <img
+            <Link to="/"><img
               src={logo}
               alt="EatLink Logo"
               className="mx-auto w-24 h-24 object-cover mb-4 rounded-full"
-            />
+            /></Link>
             <p className="text-sm break-words">Email: eatlinkcart@gmail.com</p>
             <p className="text-sm mt-1">Phone: +91 97260 54260</p>
           </div>

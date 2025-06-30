@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { FaStar, FaThList, FaTh, FaBars, FaFilter } from "react-icons/fa";
+
 import k1 from "../image/k1.png";
 import k3 from "../image/k3.png";
 import k4 from "../image/k4.png";
@@ -18,32 +20,8 @@ const productsData = [
     rating: 5,
     dateAdded: "2024-06-01",
   },
-  {
+    {
     id: 2,
-    title: "Sheesham Wood Spice Box with Containers & Spoon – 9 Partition Masala Organizer with Glass Lid",
-    image: k3,
-    discount: "34% Off",
-    label: "Best Seller",
-    price: 1149,
-    oldPrice: 1750,
-    reviews: 4,
-    rating: 5,
-    dateAdded: "2024-05-20",
-  },
-  {
-    id: 3,
-    title: "Handcrafted Wooden Fruit Basket in Apple Shape with Handle",
-    image: k1,
-    discount: "29% Off",
-    label: "Best Seller",
-    price: 949,
-    oldPrice: 1349,
-    reviews: 0,
-    rating: 0,
-    dateAdded: "2024-06-15",
-  },
-  {
-    id: 4,
     title: "Handcrafted Sheesham Wood Casserole Box with Lid – 1000ml | Artisan Round Wooden Storage Container",
     image: k5,
     discount: "34% Off",
@@ -55,7 +33,55 @@ const productsData = [
     dateAdded: "2024-06-10",
   },
   {
-    id: 1,
+    id: 3,
+    title: "Sheesham Wood Spice Box with Containers & Spoon – 9 Partition Masala Organizer with Glass Lid",
+    image: k3,
+    discount: "34% Off",
+    label: "Best Seller",
+    price: 1149,
+    oldPrice: 1750,
+    reviews: 4,
+    rating: 5,
+    dateAdded: "2024-05-20",
+  },
+  {
+    id: 4,
+    title: "Handcrafted Wooden Fruit Basket in Apple Shape with Handle",
+    image: k1,
+    discount: "29% Off",
+    label: "Best Seller",
+    price: 949,
+    oldPrice: 1349,
+    reviews: 0,
+    rating: 0,
+    dateAdded: "2024-06-15",
+  },
+  {
+    id: 5,
+    title: "Handcrafted Sheesham Wood Casserole Box with Lid – 1000ml | Artisan Round Wooden Storage Container",
+    image: k5,
+    discount: "34% Off",
+    label: "Best Seller",
+    price: 1150,
+    oldPrice: 1750,
+    reviews: 0,
+    rating: 0,
+    dateAdded: "2024-06-10",
+  },
+  {
+    id: 6,
+    title: "Sheesham Wood Spice Box with Containers & Spoon – 9 Partition Masala Organizer with Glass Lid",
+    image: k3,
+    discount: "34% Off",
+    label: "Best Seller",
+    price: 1149,
+    oldPrice: 1750,
+    reviews: 4,
+    rating: 5,
+    dateAdded: "2024-05-20",
+  },
+  {
+    id: 7,
     title: "Eco-Friendly Bamboo Toothbrush – Biodegradable, Soft Bristles & Sustainable Design",
     image: k4,
     discount: "21% Off",
@@ -67,7 +93,7 @@ const productsData = [
     dateAdded: "2024-06-01",
   },
   {
-    id: 2,
+    id: 8,
     title: "Sheesham Wood Spice Box with Containers & Spoon – 9 Partition Masala Organizer with Glass Lid",
     image: k3,
     discount: "34% Off",
@@ -78,35 +104,24 @@ const productsData = [
     rating: 5,
     dateAdded: "2024-05-20",
   },
-  {
-    id: 3,
-    title: "Handcrafted Wooden Fruit Basket in Apple Shape with Handle",
-    image: k1,
-    discount: "29% Off",
-    label: "Best Seller",
-    price: 949,
-    oldPrice: 1349,
-    reviews: 0,
-    rating: 0,
-    dateAdded: "2024-06-15",
-  },
-  {
-    id: 4,
-    title: "Handcrafted Sheesham Wood Casserole Box with Lid – 1000ml | Artisan Round Wooden Storage Container",
-    image: k5,
-    discount: "34% Off",
-    label: "Best Seller",
-    price: 1150,
-    oldPrice: 1750,
-    reviews: 0,
-    rating: 0,
-    dateAdded: "2024-06-10",
-  },
 ];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.6,
+      type: "spring",
+    },
+  }),
+};
 
 const Bestseller = () => {
   const [sortOption, setSortOption] = useState("Best selling");
-  const [gridView, setGridView] = useState("4"); // Default 4-column
+  const [gridView, setGridView] = useState("4");
 
   const sortedProducts = [...productsData].sort((a, b) => {
     switch (sortOption) {
@@ -127,7 +142,6 @@ const Bestseller = () => {
     }
   });
 
-  // Determine grid layout classes
   const getGridClass = () => {
     switch (gridView) {
       case "1":
@@ -147,15 +161,13 @@ const Bestseller = () => {
       </h2>
 
       {/* Filter + Sort Bar */}
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center space-x-3">
-          <button className="flex items-center space-x-1 border px-3 py-1 rounded-md text-sm text-gray-700 hover:bg-gray-100">
-            <FaFilter />
-            <span>Filter</span>
-          </button>
-        </div>
+      <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
+        <button className="flex items-center space-x-1 border px-3 py-1 rounded-md text-sm text-gray-700 hover:bg-gray-100">
+          <FaFilter />
+          <span>Filter</span>
+        </button>
 
-        <div className="flex items-center space-x-6 text-sm text-gray-600">
+        <div className="flex items-center space-x-4 text-sm text-gray-600">
           <div className="flex items-center space-x-2">
             <span className="text-gray-700 font-medium">Sort by:</span>
             <select
@@ -173,28 +185,21 @@ const Bestseller = () => {
             </select>
           </div>
 
-          {/* Grid Switch Buttons */}
           <div className="hidden md:flex items-center space-x-2">
             <button
-              className={`p-2 border rounded hover:bg-gray-100 ${
-                gridView === "1" ? "bg-black text-white" : ""
-              }`}
+              className={`p-2 border rounded hover:bg-gray-100 ${gridView === "1" ? "bg-black text-white" : ""}`}
               onClick={() => setGridView("1")}
             >
               <FaThList />
             </button>
             <button
-              className={`p-2 border rounded hover:bg-gray-100 ${
-                gridView === "2" ? "bg-black text-white" : ""
-              }`}
+              className={`p-2 border rounded hover:bg-gray-100 ${gridView === "2" ? "bg-black text-white" : ""}`}
               onClick={() => setGridView("2")}
             >
               <FaTh />
             </button>
             <button
-              className={`p-2 border rounded hover:bg-gray-100 ${
-                gridView === "4" ? "bg-black text-white" : ""
-              }`}
+              className={`p-2 border rounded hover:bg-gray-100 ${gridView === "4" ? "bg-black text-white" : ""}`}
               onClick={() => setGridView("4")}
             >
               <FaBars />
@@ -207,9 +212,15 @@ const Bestseller = () => {
 
       {/* Product Grid */}
       <div className={`grid ${getGridClass()} gap-6`}>
-        {sortedProducts.map((item) => (
-          <div
-            key={item.id}
+        {sortedProducts.map((item, i) => (
+          <motion.div
+            key={`${item.id}-${item.dateAdded}`}
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={cardVariants}
+            whileHover={{ scale: 1.02 }}
             className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
           >
             <div className="relative">
@@ -230,10 +241,10 @@ const Bestseller = () => {
                 {item.title}
               </p>
               <div className="flex items-center space-x-1 text-yellow-400 text-sm mb-1">
-                {[...Array(5)].map((_, i) => (
+                {[...Array(5)].map((_, i2) => (
                   <FaStar
-                    key={i}
-                    className={i < item.rating ? "text-yellow-400" : "text-gray-300"}
+                    key={i2}
+                    className={i2 < item.rating ? "text-yellow-400" : "text-gray-300"}
                   />
                 ))}
                 {item.reviews > 0 && (
@@ -251,7 +262,7 @@ const Bestseller = () => {
                 )}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

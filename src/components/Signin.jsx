@@ -1,20 +1,25 @@
 import logo from "../image/logo.png";
+import bg from "../image/logo.png"; // ✅ Your background image path
 import { Link } from "react-router-dom";
+
 export default function SignIn() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4">
-      <div className="bg-[#a06e48] p-8 rounded-xl shadow-md w-full max-w-sm">
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center px-4"
+      style={{ backgroundImage: `url(${bg})` }}
+    >
+      <div className="bg-[#2e1e12]/90 p-8 rounded-xl shadow-md w-full max-w-sm">
         {/* Logo Section */}
         <div className="text-center mb-6">
-          <Link to="/">
-          <img
-            src={logo}
-            alt="logo"
-            className="mx-auto h-20 w-20 object-contain mb-2 rounded-full"
-          />
-          </Link>
-          <h1 className="text-2xl font-bold text-white tracking-widest">
-            <span className="font-[CinzelDecorative]">EATLINK</span>{' '}
+          {/* <Link to="/">
+            <img
+              src={logo}
+              alt="logo"
+              className="mx-auto h-20 w-20 object-contain mb-2 rounded-full"
+            />
+          </Link> */}
+          <h1 className="text-2xl font-bold text-white tracking-widest p-5">
+            <span className="font-[CinzelDecorative]">EATLINK</span>{" "}
             <span className="font-[CinzelDecorative]">CART</span>
           </h1>
         </div>
