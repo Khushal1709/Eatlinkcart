@@ -1,5 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // ✅ import
 
 import k1 from "../image/k1.png";
 import k2 from "../image/k2.png";
@@ -31,13 +31,21 @@ const cardVariants = {
 };
 
 const Categories = () => {
+  const navigate = useNavigate(); // ✅ initialize
+
+  const handleCategoryClick = (title) => {
+    const formatted = title.replace(/\s+/g, "-"); // Convert to URL-friendly
+    navigate(`/Collections/${formatted}`);
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {categories.map((cat, idx) => (
           <motion.div
             key={idx}
-            className="text-center"
+            className="text-center cursor-pointer"
+            onClick={() => handleCategoryClick(cat.title)} // ✅ navigate on click
             custom={idx}
             initial="hidden"
             whileInView="visible"
